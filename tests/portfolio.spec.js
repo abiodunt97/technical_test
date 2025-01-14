@@ -1,13 +1,12 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
-const Homepage = require('../pages/homepage')
-const LoginPage = require('../pages/login-page')
+const { test } = require('@playwright/test');
+const POMManager = require('../pages/pom-manager');
 
-test('Portfolio', async ({ page }) => {
-  const homepage = new Homepage(page);
-  const loginPage = new LoginPage(page);
+test('Validate Portfolio Value', async ({ page }) => {
+  const pm = new POMManager(page)
 
-  await homepage.goto();
-  await homepage.login();
-  await loginPage.signIn();
+  await pm.homepage.goto();
+  await pm.homepage.login();
+  await pm.loginPage.signIn();
+  await pm.portfolioPage.validatePortolioValue("£", "3.43");
 });

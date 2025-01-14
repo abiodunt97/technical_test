@@ -9,6 +9,7 @@ class LoginPage {
         this.page = page;
 
         this.USER_NAME = process.env.USER_NAME
+        this.USER_EMAIL = process.env.USER_EMAIL
         this.USER_PASSWORD = process.env.USER_PASSWORD
 
         this.usernameField = page.locator('css=input[name="username"]')
@@ -19,8 +20,16 @@ class LoginPage {
     async signIn() {
 
         await expect(this.usernameField).toBeVisible();
-        await this.usernameField.fill(this.USER_NAME);
+
+        if (this.USER_NAME == undefined || this.USER_NAME == "") {
+            await this.usernameField.fill(this.USER_EMAIL);
+        } else {
+            await this.usernameField.fill(this.USER_NAME);
+        }
+
+        await expect(this.passwordField).toBeVisible();
         await this.passwordField.fill(this.USER_PASSWORD);
+
         await this.logInSubmission.click();
     }
 };
