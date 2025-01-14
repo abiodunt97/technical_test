@@ -1,0 +1,25 @@
+{
+  "name": "technical_test",
+  "version": "1.0.0",
+  "description": "A technical test",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test tests/portfolio.spec.js --headed",
+    "test-headless": "npx playwright test tests/portfolio.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abiodunt97/technical_test.git"
+  },
+  "author": "T.A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/abiodunt97/technical_test/issues"
+  },
+  "homepage": "https://github.com/abiodunt97/technical_test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7"
+  }
+}
